@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Light theme (default) - RGB triplets, no commas, so Tailwind can apply alpha via rgb(var(--x) / <alpha-value>) */
+  --ink-900: 23 26 43;
+  --ink-700: 69 72 99;
+  --ink-500: 113 116 140;
+  --ink-300: 166 168 190;
+  --ink-100: 231 232 241;
+  --surface: 246 247 251;
+  --surface-card: 255 255 255;
+  --surface-border: 235 236 245;
+
+  /* Base font size before the user's text-size preference scales it (see settings page). */
+  --app-font-scale: 1;
+}
+
+.dark {
+  --ink-900: 241 242 248;
+  --ink-700: 199 201 218;
+  --ink-500: 148 151 174;
+  --ink-300: 95 98 120;
+  --ink-100: 42 46 66;
+  --surface: 15 17 27;
+  --surface-card: 24 27 40;
+  --surface-border: 40 44 63;
+}
+
+html {
+  font-size: calc(16px * var(--app-font-scale));
+}
+
+html,
+body {
+  background-color: rgb(var(--surface));
+  color: rgb(var(--ink-900));
+}
+
+body {
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c8c9fb transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c8c9fb;
+  border-radius: 999px;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #5b5def;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
